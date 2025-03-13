@@ -1,0 +1,388 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(6, 9, 26);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* Home Section */
+.home {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Default to stacked for mobile */
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 20px); /* Reduced to avoid extra vertical space */
+    padding: 10px; /* Reduced padding for entire section */
+    width: 100%;
+    max-width: 1200px; /* Wider max width for desktop */
+    margin: 0 auto;
+}
+
+.home::before {
+    content: "";
+    width: 400px;
+    height: 400px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    background: rgba(70, 178, 255, 0.2);
+    filter: blur(100px);
+    z-index: -1;
+}
+
+/* Photo Section */
+.photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 10px;
+    width: 100%;
+    max-width: 200px; /* Centered image constraint */
+    margin: 0 auto;
+}
+
+.photo .imad {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 5px rgb(115, 0, 255));
+    object-fit: cover;
+}
+
+.photo .key,
+.photo .code {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(127, 0, 254, 0.14);
+    border-radius: 20px;
+    padding: 3px;
+    background: rgba(6, 9, 26, 0.605);
+    position: absolute;
+}
+
+.photo .key {
+    animation: keyboard 2s ease infinite;
+}
+
+.photo .code {
+    animation: code 2.4s ease infinite;
+}
+
+@keyframes code {
+    0%, 100% { transform: translate(-30px, -70px); }
+    50% { transform: translate(-30px, -60px); }
+}
+
+@keyframes keyboard {
+    0%, 100% { transform: translate(-150px, 110px); }
+    50% { transform: translate(-150px, 100px); }
+}
+
+/* Name Section */
+.name {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.name .little {
+    background: rgba(0, 51, 255, 0.105);
+    width: 130px;
+    color: rgb(0, 51, 255);
+    font-size: 0.625rem; /* 10pt */
+    font-weight: bold;
+    text-align: center;
+    border-radius: 20px;
+    padding: 2px;
+    margin: 0 auto;
+}
+
+.name h1 {
+    background: linear-gradient(90deg, rgb(0, 166, 255), rgb(238, 0, 255));
+    color: transparent;
+    background-clip: text;
+    font-size: 3.75rem; /* 60pt */
+    margin: 0;
+}
+
+.name p {
+    font-size: 0.875rem; /* 14pt */
+    max-width: 100%;
+    font-family: cursive;
+}
+
+.name .socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.name .socials a i {
+    font-size: 1.0625rem; /* 17pt */
+    transition: .5s;
+}
+
+.name .socials a:hover i {
+    filter: drop-shadow(0 0 10px currentColor);
+}
+
+.name .socials .facebook:hover i { color: rgb(0, 110, 255); }
+.name .socials .discord:hover i { color: rgb(81, 0, 255); }
+.name .socials .instagram:hover i { color: rgb(255, 0, 179); }
+.name .socials .github:hover i { color: rgb(198, 66, 255); }
+.name .socials .whatsapp:hover i { color: rgb(0, 255, 94); }
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: rgb(0, 166, 255);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: rgb(0, 140, 220);
+    box-shadow: 0 0 10px rgb(0, 166, 255);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: rgb(0, 166, 255);
+    border: 1px solid rgb(0, 166, 255);
+}
+
+.btn-secondary:hover {
+    background: rgba(0, 166, 255, 0.1);
+    box-shadow: 0 0 10px rgb(0, 166, 255);
+}
+
+/* Scroll Section */
+.scroll {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    font-family: cursive;
+    padding: 10px 0;
+}
+
+.scroll img {
+    width: 15px;
+    margin: 0 5px;
+    animation: arrow 1s ease infinite;
+    filter: drop-shadow(0 0 5px blue);
+}
+
+@keyframes arrow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+}
+
+/* Responsive Breakpoints */
+
+/* Mobile (≤ 570px) */
+@media (max-width: 570px) {
+    .home {
+        padding: 5px;
+    }
+    .photo {
+        padding: 5px 0;
+        max-width: 200px;
+    }
+    .name {
+        padding: 5px;
+        max-width: 300px;
+    }
+    .name .little {
+        font-size: 0.6rem;
+    }
+    .name h1 {
+        font-size: 2.5rem;
+    }
+    .name p {
+        font-size: 0.75rem;
+    }
+    .photo .imad {
+        width: 200px;
+        height: 200px;
+    }
+    .photo .key {
+        transform: translate(-30px, 100px);
+    }
+    .photo .code {
+        transform: translate(-50px, 100px);
+    }
+    @keyframes keyboard {
+        0%, 100% { transform: translate(-70px, 70px); }
+        50% { transform: translate(-70px, 80px); }
+    }
+    @keyframes code {
+        0%, 100% { transform: translate(80px, -50px); }
+        50% { transform: translate(80px, -40px); }
+    }
+    .home::before {
+        width: 20px;
+        height: 20px;
+    }
+    .home .name .socials a{
+        color: white;
+    }
+    /* Remove hover effects on mobile */
+    .name .socials a:hover i {
+        filter: none;
+        color: inherit;
+    }
+    .name .socials .facebook:hover i,
+    .name .socials .discord:hover i,
+    .name .socials .instagram:hover i,
+    .name .socials .github:hover i,
+    .name .socials .whatsapp:hover i { color: inherit; }
+}
+
+/* Tablet (571px - 768px) */
+@media (min-width: 571px) and (max-width: 768px) {
+
+    @keyframes keyboard {
+        0%, 100% { transform: translate(120px, -60px); }
+        50% { transform: translate(120px, -50px); }
+    }
+    @keyframes code {
+        0%, 100% { transform: translate(-80px, 90px); }
+        50% { transform: translate(-80px, 100px); }
+    }
+
+
+    .home {
+        padding: 10px;
+    }
+    .photo {
+        padding: 10px 0;
+        max-width: 250px;
+    }
+    .name {
+        padding: 10px;
+        max-width: 400px;
+    }
+    .name h1 {
+        font-size: 3rem;
+    }
+    .photo .imad {
+        width: 250px;
+        height: 250px;
+    }
+    .home::before {
+        width: 300px;
+        height: 300px;
+    }
+    /* Remove hover effects on tablet */
+    .name .socials a:hover i {
+        filter: none;
+        color: inherit;
+    }
+    .name .socials .facebook:hover i,
+    .name .socials .discord:hover i,
+    .name .socials .instagram:hover i,
+    .name .socials .github:hover i,
+    .name .socials .whatsapp:hover i { color: inherit; }
+}
+
+/* Desktop (≥ 769px) */
+@media (min-width: 769px) {
+    .home {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px; /* Decreased padding around the entire section */
+        
+    }
+    .photo {
+        order: 2;
+        max-width: 520px;
+        padding: 10px; /* Decreased padding around the photo */
+    }
+    .name {
+        order: 1;
+        max-width: 500px;
+        text-align: left;
+        align-items: flex-start;
+        padding: 10px; /* Decreased padding around the name */
+    }
+    .name .little {
+        margin: 0;
+    }
+    .name h1{
+        font-size: 50pt;
+    }
+    .name p {
+        font-size: 12pt;
+    }
+    .name .socials {
+        justify-content: flex-start;
+    }
+    .name .socials a i{
+        font-size: 17pt;
+    }
+    .buttons {
+        justify-content: flex-start;
+    }
+    .photo .imad {
+        width: 320px;
+        height: 320px;
+    }
+    .photo .key {
+        transform: translate(-60px, -70px);
+    }
+    .photo .code {
+        transform: translate(-60px, 110px);
+    }
+    .home .photo .code,
+    .home .photo .key{
+        width: 35px;
+        height: 35px;
+    }
+    @keyframes keyboard {
+        0%, 100% { transform: translate(140px, -70px); }
+        50% { transform: translate(140px, -60px); }
+    }
+    @keyframes code {
+        0%, 100% { transform: translate(-130px, 110px); }
+        50% { transform: translate(-130px, 100px); }
+    }
+    .home::before {
+        width: 400px;
+        height: 400px;
+    }
+    /* Keep hover effects on desktop */
+}
